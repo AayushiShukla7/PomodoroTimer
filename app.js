@@ -13,8 +13,7 @@ const timer = document.getElementById("timer");
 const tenMinutesLeftNotif = document.getElementById("notif1");
 const timerEndNotif = document.getElementById("notif2");
 
-//let timeLeft = 3600;    // small session --> 1 hour
-let timeLeft = 5;    // small session --> 1 hour
+let timeLeft = 3600;    // small session --> 1 hour
 
 let interval;
 
