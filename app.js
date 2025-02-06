@@ -11,7 +11,7 @@ const large = document.getElementById("large");
 
 const timer = document.getElementById("timer");
 
-let timeLeft = 605;    // small session --> 1 hour
+let timeLeft = 3600;    // small session --> 1 hour
 let interval;
 
 const updateTimer = () => {
