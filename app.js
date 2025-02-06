@@ -27,16 +27,19 @@ const updateTimer = () => {
 // Set Timer Length
 
 small.addEventListener("click", () => {
+    clearInterval(interval);
     timeLeft = 3600;
     updateTimer();
 });
 
 medium.addEventListener("click", () => {
+    clearInterval(interval);
     timeLeft = 5400;
     updateTimer();
 });
 
 large.addEventListener("click", () => {
+    clearInterval(interval);
     timeLeft = 7200;
     updateTimer();
 });
