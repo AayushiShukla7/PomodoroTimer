@@ -16,10 +16,29 @@
         <hr>
 
         <div class="button-wrapper">
-            <button id="small">Small</button>
-            <button id="medium">Medium</button>
-            <button id="large">Large</button>
+            <button id="small" class="btnSmall">
+                <span>Small</span>
+            </button>
+
+            <button id="medium" class="btnMedium">
+                <span>Medium</span>
+            </button>
+
+            <button id="large" class="btnLarge">
+                <span>Large</span>
+            </button>
         </div>
+
+        <div class="button-wrapper">
+            <button id="custom" class="btnCustom">
+                <span>Custom</span>
+            </button>
+
+            <div id="custom-timer" class="input-wrapper">
+                <label for="customTime">Enter Minutes (between 10 and 59):</label>
+                <input type="number" id="customTime" name="customTime" min="10" max="59">
+            </div>   
+        </div>         
 
         <p class="timer" id="timer">60:00</p>
 

@@ -9,6 +9,9 @@ const small = document.getElementById("small");
 const medium = document.getElementById("medium");
 const large = document.getElementById("large");
 
+const custom = document.getElementById("custom");
+const customTimerInput = document.getElementById("custom-timer");
+
 const timer = document.getElementById("timer");
 const tenMinutesLeftNotif = document.getElementById("notif1");
 const timerEndNotif = document.getElementById("notif2");
@@ -28,7 +31,6 @@ const updateTimer = () => {
 }
 
 // Set Timer Length
-
 small.addEventListener("click", () => {
     clearInterval(interval);
     timeLeft = 3600;
@@ -48,7 +50,6 @@ large.addEventListener("click", () => {
 });
 
 // Change Background Color
-
 const updateBGColor = () => {
     document.body.style.background = "#C41E3A";
     //document.body.style.background = "linear-gradient(180deg, #ff8177, #b12a5b);";
@@ -66,7 +67,6 @@ const resetBGColor = () => {
 }
 
 //Set Timer Actions
-
 const startTimer = () => {
     interval = setInterval(() => {
         timeLeft--;
@@ -92,28 +92,6 @@ const startTimer = () => {
     }, 1000);
 }
 
-// Alternate method - Using web worker (async timer)
-var worker = new Worker('worker.js');
-
-worker.addEventListener('message', function(e) {
-    updateTimer();
-})
-
-worker.postMessage('Run the timer');
-
-// self.addEventListener('message', function(e) {
-//     if(e.data === 'Run the timer') {
-//         startTimer();
-
-//         let time = 
-//             `${minutes.toString().padStart(2,"0")}
-//             :
-//             ${seconds.toString().padStart(2,"0")}`;
-        
-//         this.self.postMessage(time);
-//     }
-// });
-
 const stopTimer = () => {
     clearInterval(interval);
 }
@@ -125,6 +103,34 @@ const resetTimer = () => {
     resetBGColor();
 }
 
+// Custom Timer button actions
+custom.addEventListener("click", () => {
+    //alert('Custom timer button clicked');
+    clearInterval(interval);
+
+    // Show the timer input field - Toggle
+    if(customTimerInput.classList.contains('input-wrapper')) {
+        customTimerInput.classList.replace('input-wrapper', 'input-wrapper-show');
+    }
+    else if(customTimerInput.classList.contains('input-wrapper-show')) {
+        customTimerInput.classList.replace('input-wrapper-show', 'input-wrapper');
+    }
+    //
+
+    timeLeft = 700; // TODO: Update to the timer input value
+    updateTimer();
+});
+
+// Alternate method - Using web worker (async timer)
+var worker = new Worker('worker.js');
+
+worker.addEventListener('message', function(e) {
+    updateTimer();
+})
+
+worker.postMessage('Run the timer');
+
+// Add events (click) to the buttons
 start.addEventListener("click", startTimer);
 stop.addEventListener("click", stopTimer);
 reset.addEventListener("click", resetTimer);

@@ -85,10 +85,6 @@ button:hover {
 }
 
 #small {
-    /* background-color: #00ccd6;
-    background-image: linear-gradient(90deg, transparent 50%,
-    rgba(255,255,255,.5) 50%);
-    background-size: 40px 40px; */
     background: linear-gradient(to right, rgb(138, 215, 94), rgb(54, 202, 215));
 }
 
@@ -98,6 +94,54 @@ button:hover {
 
 #large {
     background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+}
+
+#custom {
+    background: linear-gradient(to right, #00B4DB, #000046);
+}
+
+/* Show/Hide duration on button hover */
+
+.btnSmall:hover span {
+    display:none
+}
+
+.btnMedium:hover span {
+    display:none
+}
+
+.btnLarge:hover span {
+    display:none
+}
+
+.btnSmall:hover:before {
+    content:"1 Hour";
+}
+
+.btnMedium:hover:before {
+    content:"1.5 Hour";
+}
+
+.btnLarge:hover:before {
+    content:"2 Hours";
+}
+
+/* Custom Timer */
+
+.btnCustom:hover span {
+    display:none
+}
+
+.btnCustom:hover:before {
+    content:"Click to Specify";
+}
+
+.input-wrapper {
+    display: none;
+}
+
+.input-wrapper-show {
+    display: block;
 }
 
 /* Animation */
