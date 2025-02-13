@@ -15,7 +15,7 @@ const timerEndNotif = document.getElementById("notif2");
 
 let timeLeft = 3600;    // small session --> 1 hour
 
-let interval;
+let interval = null;
 
 const updateTimer = () => {
     const minutes = Math.floor(timeLeft / 60);
@@ -91,6 +91,28 @@ const startTimer = () => {
         }
     }, 1000);
 }
+
+// Alternate method - Using web worker (async timer)
+var worker = new Worker('worker.js');
+
+worker.addEventListener('message', function(e) {
+    updateTimer();
+})
+
+worker.postMessage('Run the timer');
+
+// self.addEventListener('message', function(e) {
+//     if(e.data === 'Run the timer') {
+//         startTimer();
+
+//         let time = 
+//             `${minutes.toString().padStart(2,"0")}
+//             :
+//             ${seconds.toString().padStart(2,"0")}`;
+        
+//         this.self.postMessage(time);
+//     }
+// });
 
 const stopTimer = () => {
     clearInterval(interval);
