@@ -9,8 +9,8 @@
 <body>
     
     <div class="container" id="container">
-        <audio id="notif1" src="./assets/notification-sound-269266.mp3" preload="auto"></audio>
-        <audio id="notif2" src="./assets/wind-chimes-32150.mp3" preload="auto"></audio>
+        <audio id="notif1" src="./assets/sounds/notification-sound-269266.mp3" preload="auto"></audio>
+        <audio id="notif2" src="./assets/sounds/wind-chimes-32150.mp3" preload="auto"></audio>
 
         <h1 class="title">Pomodoro Timer</h1>
         <hr>
@@ -27,18 +27,16 @@
             <button id="large" class="btnLarge">
                 <span>Large</span>
             </button>
-        </div>
 
-        <div class="button-wrapper">
             <button id="custom" class="btnCustom">
                 <span>Custom</span>
             </button>
+        </div> 
 
-            <div id="custom-timer" class="input-wrapper">
-                <label for="customTime">Enter Minutes (between 10 and 59):</label>
-                <input type="number" id="customTime" name="customTime" min="10" max="59">
-            </div>   
-        </div>         
+        <div id="custom-timer" class="input-wrapper">
+            <label for="customTime">Enter Minutes (between 10 and 59):</label>
+            <input type="number" id="customTime" name="customTime" min="10" max="59" value="11">
+        </div>                  
 
         <p class="timer" id="timer">60:00</p>
 

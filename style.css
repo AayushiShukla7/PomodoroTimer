@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+    gap: 1.5em;
     color: white;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 2em;
@@ -127,6 +127,26 @@ button:hover {
 }
 
 /* Custom Timer */
+
+#custom-timer {
+    font-size: 1.5em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border: 1.5px black solid;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    color: white;
+}
+
+#custom-timer input {
+    height: 50px;
+    width: 50px;
+    font-size: 1em;
+    font-weight: 800;
+    padding: 5px;
+    border-radius: 0.5em;
+    border: none;
+}
 
 .btnCustom:hover span {
     display:none

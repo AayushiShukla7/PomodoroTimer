@@ -77,6 +77,7 @@ const startTimer = () => {
             updateBGColor();
         }
 
+        // Timer has ended
         if(timeLeft === 0) {
             clearInterval(interval);
             
@@ -88,6 +89,16 @@ const startTimer = () => {
 
             timeLeft = 3600;
             updateTimer();
+        }
+
+        // If the custom time input is visible and has value --> Use that as the timer value
+        if(customTimerInput.classList.contains('input-wrapper-show')) {
+            customTime = document.getElementById('customTime').value;
+            timeLeft = customTime * 60; // Update to the timer input value
+            updateTimer();
+
+            // Hide the timer input after starting the timer
+            hideCustomTimerInput();
         }
     }, 1000);
 }
@@ -104,21 +115,24 @@ const resetTimer = () => {
 }
 
 // Custom Timer button actions
+const showCustomTimerInput = () => {
+    customTimerInput.classList.replace('input-wrapper', 'input-wrapper-show');
+}
+const hideCustomTimerInput = () => {
+    customTimerInput.classList.replace('input-wrapper-show', 'input-wrapper');
+}
+
 custom.addEventListener("click", () => {
     //alert('Custom timer button clicked');
     clearInterval(interval);
 
     // Show the timer input field - Toggle
     if(customTimerInput.classList.contains('input-wrapper')) {
-        customTimerInput.classList.replace('input-wrapper', 'input-wrapper-show');
+        showCustomTimerInput();
     }
     else if(customTimerInput.classList.contains('input-wrapper-show')) {
-        customTimerInput.classList.replace('input-wrapper-show', 'input-wrapper');
+        hideCustomTimerInput();
     }
-    //
-
-    timeLeft = 700; // TODO: Update to the timer input value
-    updateTimer();
 });
 
 // Alternate method - Using web worker (async timer)
