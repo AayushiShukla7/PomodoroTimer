@@ -109,6 +109,10 @@ const stopTimer = () => {
 
 const resetTimer = () => {
     clearInterval(interval);
+    if(customTimerInput.classList.contains('input-wrapper-show')) {
+        hideCustomTimerInput();
+    }
+    
     timeLeft = 3600;
     updateTimer();
     resetBGColor();
